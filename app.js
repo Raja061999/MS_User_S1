@@ -1,17 +1,16 @@
 const express = require('express');
 const dotenv = require('dotenv');
- const dbConnection = require('./config/db.js');
-const productRoutes = require("./routes/productRoutes.js");
+const userRoutes = require("./routes/userRoutes.js");
 
 dotenv.config();
 const app = express();
 
-dbConnection;
 
 //middlewares
 app.use(express.json())
+
 //routes
-app.use("/api/products", productRoutes);
+app.use("/api/users", userRoutes);
 
 app.listen(process.env.PORT, (res, err)=>{
     if(err){
